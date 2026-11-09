@@ -1,0 +1,17 @@
+{
+  "name": "newsflow-bdd",
+  "version": "1.0.0",
+  "description": "Exercício de BDD com Cucumber.js sobre o NewsFlow (Vértice): histórias, cenários Gherkin e automação",
+  "private": true,
+  "scripts": {
+    "test": "cucumber-js",
+    "test:dry": "cucumber-js --dry-run",
+    "test:smoke": "cucumber-js --tags @smoke"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.0"
+  }
+}

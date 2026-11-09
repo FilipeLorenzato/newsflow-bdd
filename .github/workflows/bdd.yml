@@ -1,0 +1,30 @@
+name: BDD
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  cucumber:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Instalar dependências
+        run: npm install
+      - name: Validar sintaxe e passos (dry-run)
+        run: npm run test:dry
+      - name: Rodar a suíte
+        run: npm test 2>&1 | tee saida-npm-test.txt
+      - name: Rodar em paralelo (prova de independência)
+        run: npx cucumber-js --parallel 2 --format progress
+      - name: Guardar relatório e saída
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-cucumber
+          path: |
+            relatorios/cucumber-report.html
+            saida-npm-test.txt
