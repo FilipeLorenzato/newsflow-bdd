@@ -83,7 +83,10 @@ da escrita ao disparo:
 
 ## Saída do `npm test`
 
-<!-- SAIDA-NPM-TEST -->
+Execução real no GitHub Actions (atualizada automaticamente a cada envio ao repositório):
+
+<!-- SAIDA-NPM-TEST:INICIO -->
+<!-- SAIDA-NPM-TEST:FIM -->
 
 ## Relatório
 

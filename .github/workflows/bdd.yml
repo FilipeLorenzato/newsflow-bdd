@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   cucumber:
     runs-on: ubuntu-latest
@@ -17,14 +20,25 @@ jobs:
       - name: Validar sintaxe e passos (dry-run)
         run: npm run test:dry
       - name: Rodar a suíte
-        run: npm test 2>&1 | tee saida-npm-test.txt
+        shell: bash
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee saida-npm-test.txt
       - name: Rodar em paralelo (prova de independência)
         run: npx cucumber-js --parallel 2 --format progress
-      - name: Guardar relatório e saída
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: relatorio-cucumber
-          path: |
-            relatorios/cucumber-report.html
-            saida-npm-test.txt
+      - name: Gravar relatório e saída no repositório
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          node -e '
+            const fs = require("fs")
+            const saida = fs.readFileSync("saida-npm-test.txt", "utf8").trim()
+            const readme = fs.readFileSync("README.md", "utf8")
+            const bloco = "<!-- SAIDA-NPM-TEST:INICIO -->\n```text\n$ npm test\n" + saida + "\n```\n<!-- SAIDA-NPM-TEST:FIM -->"
+            fs.writeFileSync("README.md", readme.replace(/<!-- SAIDA-NPM-TEST:INICIO -->[\s\S]*<!-- SAIDA-NPM-TEST:FIM -->/, bloco))
+          '
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md relatorios/cucumber-report.html
+          git diff --cached --quiet || git commit -m "Atualiza relatório do Cucumber e saída do npm test"
+          git push
