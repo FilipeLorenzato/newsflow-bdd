@@ -4,7 +4,7 @@ Exercício de Teste de Software — *do Gherkin ao Cucumber*. Quatro histórias 
 **NewsFlow** (plataforma de newsletters da Vértice), os cenários em Gherkin que as comprovam e a
 suíte Cucumber.js que os executa sobre um domínio em memória.
 
-**Integrantes:** Filipe Lorenzato · Felipe Birchal · Gabryelle Franco
+**Integrantes:** Aisha Camille · Filipe Lorenzato · Gabryelle Franco
 
 ## Como rodar
 

@@ -1,6 +1,6 @@
 # Histórias de usuário — NewsFlow
 
-**Integrantes:** Filipe Lorenzato · Felipe Birchal · Gabryelle Franco
+**Integrantes:** Aisha Camille · Filipe Lorenzato · Gabryelle Franco
 
 As quatro histórias seguem o caminho de uma edição desde a escrita até o disparo:
 **escrever → aprovar → agendar → escolher para quem vai**. Cada uma é uma fatia
