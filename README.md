@@ -95,7 +95,7 @@ $ npm test
 
 29 scenarios (29 passed)
 173 steps (173 passed)
-0m00.055s (executing steps: 0m00.010s)
+0m00.078s (executing steps: 0m00.012s)
 ```
 <!-- SAIDA-NPM-TEST:FIM -->
 
