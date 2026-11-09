@@ -102,4 +102,6 @@ $ npm test
 ## Relatório
 
 O relatório navegável do Cucumber, com cada cenário, cada passo e o tempo de execução, está em
-[`relatorios/cucumber-report.html`](relatorios/cucumber-report.html).
+[`relatorios/cucumber-report.html`](relatorios/cucumber-report.html). Ele é gerado pelo `npm test`
+e regravado pelo GitHub Actions a cada envio ao repositório. Para ver, baixe o arquivo
+(botão *Download raw file*) e abra no navegador.
