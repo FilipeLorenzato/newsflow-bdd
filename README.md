@@ -86,6 +86,17 @@ da escrita ao disparo:
 Execução real no GitHub Actions (atualizada automaticamente a cada envio ao repositório):
 
 <!-- SAIDA-NPM-TEST:INICIO -->
+```text
+$ npm test
+> newsflow-bdd@1.0.0 test
+> cucumber-js
+
+.............................................................................................................................................................................
+
+29 scenarios (29 passed)
+173 steps (173 passed)
+0m00.056s (executing steps: 0m00.009s)
+```
 <!-- SAIDA-NPM-TEST:FIM -->
 
 ## Relatório
